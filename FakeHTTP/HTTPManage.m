@@ -36,20 +36,10 @@
 
 - (void)sendMonReq:(NSString*)url
 {
-    //清空cookie
-    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    NSArray *tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
-    for (id obj in tmpArray) {
-        [cookieJar deleteCookie:obj];
-    }
-    
-    [self GET:url parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+//    return;
+    [self GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"responseObject is %@",responseObject);
-        
-    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-        
-        NSLog(@"error is %@",error);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
 }
